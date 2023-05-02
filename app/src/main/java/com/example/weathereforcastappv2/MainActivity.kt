@@ -8,6 +8,7 @@ import androidx.navigation.Navigation
 import com.example.weathereforcastappv2.databinding.ActivityMainBinding
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -23,14 +24,19 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
             //binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
 
-
+setSupportActionBar(binding.toolbar)
       setContentView(binding.root)
 
      navController = Navigation.findNavController(this,R.id.nav_host_fragment_container)
 
 setupWithNavController(binding.bottomNav,navController)
 
+NavigationUI.setupActionBarWithNavController(this,navController)
 
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return findNavController(R.id.nav_host_fragment_container).navigateUp()
     }
 }
