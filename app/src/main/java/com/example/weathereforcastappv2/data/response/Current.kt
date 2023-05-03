@@ -3,7 +3,7 @@ package com.example.weathereforcastappv2.data.response
 
 import com.google.gson.annotations.SerializedName
 
-data class CurrentWeatherEntry(
+data class Current(
     @SerializedName("observation_time")
     val observationTime: String,
     val temperature: Int,
@@ -26,5 +26,7 @@ data class CurrentWeatherEntry(
     val feelslike: Int,
     @SerializedName("uv_index")
     val uvIndex: Int,
-    val visibility: Int
+    val visibility: Int,
+    @SerializedName("is_day")
+    val isDay: String
 )

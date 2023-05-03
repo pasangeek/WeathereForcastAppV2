@@ -1,8 +1,7 @@
 package com.example.weathereforcastappv2.data
 
 import com.example.weathereforcastappv2.data.response.CurrentWeatherResponse
-import com.example.weathereforcastappv2.data.response.Location
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
+import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -20,8 +19,8 @@ const val API_KEY = "71714f356ae50a51068715ef57fc6b91"
 interface ApixuWeatherApiService {
 @GET("current")
 fun  getCurrentWeather(
-    @Query("query") location: String,
-@Query("language")languageCode :String = "en"
+    @Query("query") location: String
+
 ): Deferred<CurrentWeatherResponse>//fetch data to certain class
 
 companion object
@@ -35,7 +34,7 @@ companion object
        val url = chain.request()
            .url()
            .newBuilder()
-           .addQueryParameter("key", API_KEY)
+           .addQueryParameter("access_key", API_KEY)
            .build()
 val request = chain.request()
     .newBuilder()
@@ -49,7 +48,7 @@ val okHttpClient = OkHttpClient.Builder()
 
         return  Retrofit.Builder()
             .client(okHttpClient)
-            .baseUrl("https://api.weatherstack.com/")
+            .baseUrl("http://api.weatherstack.com/")
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
