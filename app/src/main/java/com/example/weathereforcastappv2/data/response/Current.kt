@@ -20,7 +20,7 @@ data class Current(
     @SerializedName("wind_dir")
     val windDir: String,
     val pressure: Int,
-    val precip: Int,
+    val precip: Double,
     val humidity: Int,
     val cloudcover: Int,
     val feelslike: Int,
