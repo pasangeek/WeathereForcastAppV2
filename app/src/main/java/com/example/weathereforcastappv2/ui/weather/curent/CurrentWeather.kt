@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import androidx.compose.ui.platform.textInputServiceFactory
 import com.example.weathereforcastappv2.R
 import com.example.weathereforcastappv2.data.ApixuWeatherApiService
-import com.example.weathereforcastappv2.data.response.CurrentWeatherResponse
+import com.example.weathereforcastappv2.data.db.network.response.CurrentWeatherResponse
 import com.example.weathereforcastappv2.databinding.ActivityMainBinding
 import com.example.weathereforcastappv2.databinding.FragmentCurrentWeatherBinding
 import kotlinx.coroutines.Dispatchers
